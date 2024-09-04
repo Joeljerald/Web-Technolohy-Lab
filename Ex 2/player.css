@@ -1,0 +1,20 @@
+abbr
+{
+    color:rgb(71, 210, 238);
+    font-weight: bold;
+    text-decoration: underline;
+}
+h1
+    {
+        color:rgb(255, 223, 88);
+        text-shadow: 3px 3px 5px black;
+        margin-bottom:10px;
+        
+    }
+.green{
+    font-style:unset;
+    font-weight: bold;
+}
+img{
+    box-shadow:3px 3px 5px;
+}
