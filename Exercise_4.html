@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Player Registration</title>
+    <link rel="stylesheet" href="style4.css">
+    <script>
+    
+        function showAlert(message, fieldId) {
+            alert(message);
+            document.getElementById(fieldId).focus();
+            return false;
+        }
+
+        function validateForm() {
+            let name = document.getElementById("name").value;
+            let phone = document.getElementById("phno").value;
+            let age = document.getElementById("age").value;
+            let city = document.getElementById("city").value;
+            let role = document.getElementById("role").value;
+            let bowlingStyle = document.querySelector('input[name="bowlingStyle"]:checked');
+            let battingStyle = document.querySelector('input[name="battingStyle"]:checked');
+
+            if (name === "") {
+                return showAlert("Player's name must be filled out", "name");
+            }
+
+            if (phone === "" || !/^\d{10}$/.test(phone)) {
+                return showAlert("Please enter a valid 10-digit phone number", "phno");
+            }
+
+            if (age === "" || age < 16 || age > 50) {
+                return showAlert("Please enter a valid age (16-50)", "age");
+            }
+
+            if (city === "") {
+                return showAlert("City must be filled out", "city");
+            }
+
+
+            if (role === "") {
+                return showAlert("Please select a playing role", "role");
+            }
+
+            if (!bowlingStyle) {
+                alert("Please select a bowling style");
+                return false;
+            }
+
+          
+            if (!battingStyle) {
+                alert("Please select a batting style");
+                return false;
+            }
+
+            return true;  
+        }
+    </script>
+    <style>
+         body{
+            background-color:rgb(77, 79, 170);
+            text-align: center;
+            margin-top: 50px;
+        }
+        h3{
+            color: rgba(36, 12, 251, 0.808);
+        }
+    </style>
+</head>
+<body style="font-size: 20px;">
+    <form onsubmit="return validateForm()">
+        
+        <h1>Thottu paaru nanga tharumaru!!! </h1>
+    <hr color="black">
+    <img src="Indian_Team.jpg" class="rounded float-center" alt="Home" width="auto" height="auto">
+        <h3 style="text-align: center;">Cricket Player Registration Form</h3>
+        <p style="font-size: 20px;"><b>Player Information</b></p>
+    
+        <label for="name">Player Name:</label><br>
+        <input type="text" id="name" name="name"><br>
+
+        <label for="phno">Phone Number:</label><br>
+        <input type="text" id="phno" name="phno"><br>
+
+        <label for="age">Age:</label><br>
+        <input type="number" id="age" name="age" min="16" max="50"><br>
+
+        <label for="city">City:</label><br>
+        <input type="text" id="city" name="city"><br>
+
+        <label for="role">Playing Role:</label><br>
+        <select id="role" name="role">
+            <option value="">Select Role</option>
+            <option value="Batsman">Batsman</option>
+            <option value="Bowler">Bowler</option>
+            <option value="All-rounder">All-rounder</option>
+            <option value="Wicketkeeper">Wicketkeeper</option>
+        </select><br>
+
+        <p style="font-size: 20px;"><b>Bowling Style</b></p>
+        <input type="radio" id="fast" name="bowlingStyle" value="Fast">
+        <label for="fast">Fast</label><br>
+        <input type="radio" id="spin" name="bowlingStyle" value="Spin">
+        <label for="spin">Spin</label><br>
+
+        <p style="font-size: 20px;"><b>Batting Style</b></p>
+        <input type="radio" id="rightHanded" name="battingStyle" value="Right-Handed">
+        <label for="rightHanded">Right-Handed</label><br>
+        <input type="radio" id="leftHanded" name="battingStyle" value="Left-Handed">
+        <label for="leftHanded">Left-Handed</label><br>
+
+        <footer style="text-align: center;">
+            <input type="submit" value="Register Player" class="button">
+        </footer>
+    </form>
+</body>
+</html>
