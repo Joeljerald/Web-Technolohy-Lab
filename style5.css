@@ -1,0 +1,89 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: rgb(230, 245, 255); /* Cricket field inspired color */
+    font-size: medium;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    margin: 20px 0;
+    overflow: hidden;
+    border: 2px solid rgb(0, 128, 64); /* Cricket theme green border */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+.image {
+    width: 100%;
+    display: block; /* Ensures the image is visible */
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    position: relative; /* Keeps the image in the normal flow */
+    z-index: 1; /* Place the image below the text */
+}
+
+.text {
+    position: absolute;
+    bottom: 10%; /* Place text above the image when hovering */
+    left: 50%; 
+    transform: translateX(-50%);
+    z-index: 2; /* Ensure the text is above the image */
+    color: rgb(255, 255, 255); /* White text */
+    background-color: rgba(0, 128, 64, 0.8); /* Green background for contrast */
+    padding: 10px;
+    border-radius: 5px; /* Rounded text box */
+    text-align: center;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease, bottom 0.3s ease; /* Animate both opacity and position */
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.container:hover .image {
+    transform: translateY(30px); /* Push the image slightly down on hover */
+}
+
+.container:hover .text {
+    opacity: 1; /* Make the text visible */
+    bottom: 50%; /* Position the text above the image */
+}
+
+#hoverText {
+    text-align: center;
+    background-color: rgb(0, 128, 64); /* Green theme for cricket */
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#hoverText:hover {
+    background-color: rgb(34, 139, 34); /* Darker green on hover */
+}
+
+#time1 {
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 18px;
+    color: rgb(34, 34, 34);
+    background-color: rgb(245, 245, 245);
+    padding: 10px;
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 5px;
+}
+
+.container-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
